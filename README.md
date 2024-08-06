@@ -49,7 +49,8 @@ git clone https://github.com/solgenomics/CRISPGET
 ```
 Run the crispget_tool from within the CRISPGET folder using:
 ```
-docker compose up -d
+docker build -t breedbase/crispget_tool_final:v0.01 .
+docker-compose up --detach
 ```
 
 By default, the CRISPGET interface will be available at ```localhost:8088```. To make the CRISPGET tool available through secure http, an ```nginx``` front-end is recommended, using an https certificate by [Let's encrypt](https://letsencrypt.org/).
