@@ -53,16 +53,4 @@ docker build -t breedbase/crispget_tool_final:v0.01 .
 docker-compose up --detach
 ```
 
-By default, the CRISPGET interface will be available at ```localhost:8088```. To make the CRISPGET tool available through secure http, an ```nginx``` front-end is recommended, using an https certificate by [Let's encrypt](https://letsencrypt.org/).
-
-
-
-### To start the server manually
-
-If you install the system manually, you can start the server using the start script in the ```CRISPGET/``` directory. You can also use this script in the docker.
-
-```
-bash start_crispget.sh
-```
-
-The server needs to be stop by killing the ```crispget_server.pl``` process.
+By default, the CRISPGET interface will be available at ```localhost:8088```.
