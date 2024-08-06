@@ -1,0 +1,266 @@
+
+<%args>
+
+%databases
+$sequence => undef
+$default_db => undef
+$f_size => 0
+
+</%args>
+
+
+<& /modal_msgs.mas &>
+
+<script>
+  
+	
+	var seq = ">Solyc10g047140.1.1 Receptor like kinase, RLK\nATGGATCAGTCGGTGTTGGCGATCTGGGTATTTCTCTGCTTAATTGGTCTGCTTTTCAATTTGTCACCCGTCGCCGGTAACGCTGAAGGTGATGCCTTGAATGCTCTGAAGACAAATTTGGCTGATCCTAATAGTGTTCTACAGAGTTGGGATGCAACCCTTGTTAATCCTTGTACTTGGTTCCATGTGACATGCAACAATGAAAATAGTGTGACTAGAGTTGATCTAGGAAATGCAAATCTATCAGGTCAACTGGTACCACAGCTTGGCCAACTCCAGAAATTGCAGTACTTGGAACTTTATAGTAATAACATAAGCGGAAGAATTCCAAATGAACTGGGAAACTTGACAGAGTTGGTTAGTTTGGATCTTTACCTGAACAACTTAAATGGTCCTATTCCTCCCTCATTGGGCAGGCTTCAGAAGCTACGCTTCCTGAGGCTCAATAATAACAGTTTGAATGAAGGTATTCCCATGTCTCTAACCACCATTGTTGCACTTCAAGTACTTGATCTCTCAAACAACCATTTGACAGGACTAGTTCCAGTCAACGGTTCCTTTTCACTTTTTACTCCTATAAGTTTTGCTAATAATCAGTTGGAAGTTCCTCCAGTTTCTCCACCTCCTCCTCTTCCTCCTACACCCTCATCGTCATCTTCAGTGGGCAACAGCGCAACTGGAGCTATCGCTGGAGGAGTTGCTGCAGGCGCTGCTCTTCTATTTGCAGCTCCTGCAATTTTTCTTGCTTGGTGGCGTCGGAGGAAACCACAAGACCACTTCTTTGATGTTCCTGCTGAGGAGGATCCAGAAGTTCATCTGGGACAACTCAAAAGGTTTTCCTTGCGTGAACTACAAGTTGCGTCGGATAATTTTAGCAACAGAAATATACTCGGTAGAGGTGGATTTGGTAAGGTTTATAAGGGCCGGTTAGCTGATGGCTCTTTAGTTGCAGTGAAAAGACTAAAAGAGGAACGTACTCAAGGTGGAGAGTTACAGTTCCAGACAGAAGTAGAAATGATCAGCATGGCTGTACACCGAAACCTACTTCGTTTACGGGGCTTTTGCATGACACCCACTGAGCGCGTGCTTGTTTATCCTTACATGGAGAATGGAAGTGTTGCATCACGTTTAAGAGAGAGGCCTGAATCAGAGCCCCCACTTGACTGGCCAAAAAGGAAGCGTATTGCACTTGGATCTGCAAGAGGCCTTGCTTACTTGCATGATCATTGTGATCCTAAAATTATTCATCGTGACGTCAAAGCCGCAAATATCTTGTTGGATGAGGAGTTTGAAGCAGTTGTTGGGGATTTTGGGTTAGCTAAACTCATGGACTACAAGGATACTCATGTTACCACTGCTGTACGTGGTACAATTGGGCATATTGCCCCTGAATATTTATCTACTGGTAAATCTTCTGAGAAAACTGATGTCTTTGGCTATGGGGTTATGCTTCTAGAGCTCATAACTGGGCAAAGGGCTTTTGATCTTGCTCGACTTGCGAATGATGATGATGTCATGCTGCTAGATTGGGTGAAGGGACTCCTGAAGGACAAGAAATATGAAACATTAGTTGATGCAGATCTTCAAGGTAATTACAATGAAGAAGAGGTGGAACAACTTATTCAGGTAGCTCTACTTTGCACGCAGAGTACGCCTACGGAACGTCCAAAGATGTCAGAAGTTGTAAGAATGCTTGAAGGTGATGGCCTTGCTGAGAGGTGGGAGGAATGGCAAAAGGAGGAGATGTTCCGGCAAGATTACAACCATGTACACCACCCCCATACTGATTGGATAATAGCTGACTCCACGTCAAATATCCGACCGGATGAGTTGTCAGGGCCAAGATGA\n";
+
+	function example() { 
+	    document.getElementById("sequence").value=seq;
+	}
+</script>
+
+
+<script>
+  function folding_section(f_div,img_id) {
+    var div_e = jQuery(f_div);
+    var img_e = jQuery(img_id);
+    
+    // alert(div_e.hasClass("collapse")+"  "+div_e.hasClass("in"));
+    
+    if (div_e.hasClass("collapse") && div_e.hasClass("in")) {
+      div_e.collapse('hide');
+      img_e.attr("src",'/static/images/collapser_plus.png');
+    } 
+    else {
+      div_e.collapse('show');
+      img_e.attr("src",'/static/images/collapser_minus.png');
+    }
+  }
+  
+</script>
+
+
+<center>
+	<h3> SGN CRISPGET</h3>
+  <!--  Input collapser in output view -->
+  <div id="input_collapser" style="text-align:left;width:900px;display:none">
+  	<a class="collapser_link" href="javascript:folding_section('#input_view','#tmp_img_input');">
+  		<img id="tmp_img_input" class="collapser_img" src="/static/images/collapser_minus.png"/>
+  		<b>INPUT</b>
+  	</a>
+  </div>
+</center>
+
+<!--  Add example sequence and help buttons that are in the upper part-->
+<div id="input_view" class="collapse in">
+	<center>
+
+  <div class="form-group">
+    <label for="comment">
+      Sequence:<span id="example"> (<a class="blue_text" onclick="example()" style="cursor:pointer">example sequence</a>)</span>
+    </label>
+    <button type="button" class="btn btn-link" data-toggle="modal" data-target="#usage_modal">Usage Help <span class="glyphicon glyphicon-question-sign"></span></button>
+    <textarea class="form-control" id="sequence" name="sequence"></textarea>
+  </div>
+
+
+<!--  Mismatches options -->
+
+<div class="form-inline" >
+  <div class="form-group">
+    <label for="mm" title="Number of mismatches allowed in Bowtie alignment">mismatches </label>
+    <input type="mm" class="form-control" id="mm" value="2" name="mismatch" style="width: 50px;">&nbsp; &nbsp; &nbsp;
+  </div>
+</div>
+<br />
+<br />
+
+<!-- New options: Guide RNA and Align tool-->
+  <div class="form-inline">
+    <div class="form-group input-sm">
+      <label for="g_rna">Guide RNA Sequence &nbsp; </label>
+      <select class="form-control" id='g_rna' name="g_rna">
+    	<br />
+      <option value="20bp-NGG">20bp-NGG</option>
+      </select>  &nbsp;
+    </div>
+  </div>
+<br />
+<br />
+
+<div class="form-inline">
+    <div class="form-group input-sm">
+      <label for="align_tool">Align tool &nbsp; </label>
+      <select class="form-control" id='align_tool' name="align_tool">
+    	<br />
+      <option value="Bowtie">Bowtie</option>
+      </select>  &nbsp;
+    </div>
+</div>
+<br />
+<br />
+
+<div class="form-inline" >
+  <div class="form-group">
+    <label for="ref_gen_ext" title="length extension of reference genome (to show off targets)">Reference genome context length</label>
+    <input type="ref_gen_ext" class="form-control" id="ref_gen_ext" value="10" name="ref_gen_ext" style="width: 50px;">&nbsp; &nbsp; &nbsp;
+  </div>
+</div>
+<br />
+<br />
+
+
+
+<!--  Available databases -->
+
+  <div class="form-inline">
+    <div class="form-group input-sm">
+      <label for="bt2_db">Database &nbsp; </label>
+      <select class="form-control" id='bt2_db' name="database">
+    	<br />
+
+      <%perl>
+      	foreach my $d (keys %databases) {
+      		my $db_name = $d;
+      		$db_name =~ s/_/ /g;
+          print "<optgroup label=\"".$db_name."\">"; 
+
+          foreach my $type (@{$databases{$d}}) {
+            my $db_with_type = $d."_".$type; 
+            $db_with_type =~ s/_/ /g;
+        
+            if ($default_db) {
+      		  	if ($db_with_type eq $default_db) {
+      		  		print "<option id=\"default_db\" value=\"".$d."_".$type."\">".$db_with_type."</option><br />";
+              } else {
+                print "<option value=\"".$d."_".$type."\">".$db_with_type."</option><br />";
+              }
+            } else {
+              print "<option value=\"".$d."_".$type."\">".$db_with_type."</option><br />";
+            }
+          }
+          print "</optgroup><br />";
+      	}
+      </%perl>
+
+      </select>  &nbsp; <a href="https://solgenomics.net/contact/form" data-placement="right" data-toggle="tooltip" title="send us an email to add other species" style="font-size:10px;"  target="_blank">Request other DBs</a>
+    </div>
+  </div>
+
+	<br />
+  <br />
+
+
+<button type="button" class="btn btn-primary" id="run_crispr_tool" value="Run CRISPR guide tool Analysis">Run CRISPGET Analysis</button><br>
+  
+</center>
+
+  
+</div>
+	
+<div id="coverage_val" val="0"></div>
+<div id="seq_length" val="0"></div>
+<div id="best_start" val="0"></div>
+<div id="best_end" val="0"></div>
+<div id="best_score" val="0"></div>
+<div id="db_name" val="0"></div>
+<div id="help_fsize" val="0"></div>
+<div id="help_nmer" val="0"></div>
+<div id="help_mm" val="0"></div>
+
+<div id="img_height" style="display:none;" value="601"></div>
+
+<div id="params" style="display:none;"></div>
+<div id="help_dialog_tmp" style="display:none;"></div>
+
+<div id="help_fsize"></div>
+<div id="help_nmer"></div>
+<div id="help_mm"></div>
+<div id="help_db"></div>
+
+
+<!-- ##################################################################################### -->
+<!-- OUTPUT VIEW -->
+<!-- ##################################################################################### -->
+<br/>
+<center>
+<div id="circle"></div>
+<div id="res_bar" style="text-align:left;width:900px;display:none;">
+	<a class="collapser_link" href="javascript:folding_section('#results_section','#tmp_img_res');">
+		<img id="tmp_img_res" class="collapser_img" src="/static/images/collapser_minus.png"/>
+		<b>OUTPUT</b>
+	</a>
+</div>
+
+<div id="results_section" class="collapse in" style="display:none;">
+
+  <!-- ############################ Output CRISPR tool######################################################### -->
+
+
+
+  
+
+
+  <div id="myGuideModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>            
+      </div>
+    
+    </div>
+
+  <br/>
+	<div class="subsection_bar">
+		<a class="collapser_link" href="javascript:folding_section('#hide1','#tmp_img_hide1');">
+			<img id="tmp_img_hide1" class="sub_collapser_img" src="/static/images/collapser_minus.png"/>
+			Possible guides
+		</a>
+    <button type="button" class="btn btn-link pull-right" data-toggle="modal" data-target="#help_dialog_1" style="padding:0px">Help <span class="glyphicon glyphicon-question-sign"></span></button>
+    
+	</div>
+  <div class="space_div">
+  </div>
+	
+  <div id="hide1" class="collapse in">
+    <center>
+        <div class="border_rect guides_div">
+    <div class="inner_content">
+    </div>
+  </div>
+    </center>
+  </div>
+
+	
+	<br/>
+  
+<br>	
+	<div class="subsection_bar" style="text-align:left;width:900px;">
+		<a class="collapser_link" href="javascript:folding_section('#hide2','#tmp_img_hide2');">
+			<img id="tmp_img_hide2" class="sub_collapser_img" src="/static/images/collapser_minus.png"/>
+			Possible guides table view
+		</a>
+    <button type="button" class="btn btn-link pull-right" data-toggle="modal" data-target="#help_dialog_2" style="padding:0px">Help <span class="glyphicon glyphicon-question-sign"></span></button>
+    
+	</div>
+
+  <div id="hide2" class="collapse in center_section">
+    <center>
+      <div class="invisible_div table_div">
+          <div class="inner_content">
+          </div>
+
+      </div>
+    </center>
+  </div>
+
+	<br/>
+
+	<!-- ############################ Output CRISPR tool######################################################### -->
+</div>
+
+</center>
+
+
