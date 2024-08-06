@@ -13,14 +13,14 @@ unzip GCA_003287315.1.zip
 in emacs, replace the string >lcl| with > , if present
 (otherwise, fastacmd will not work correctly)
 
-Copy the dataset to the correct location, where the CRISPGET tool can see it. If using the docker, this target directory has to be mounted into the docker at ```/home/crispget_sequence_files/GCA_003287315.1```.
+Copy the dataset to the correct location, where the CRISPGET tool can see it. If using the docker, this target directory has to be mounted into the docker at ```/home/crispget_sequence_files/GCA_003287315.1/cds```.
 ```
 sudo cp ncbi_dataset/data/GCA_003287315.1/cds_from_genomic.fna /export/prod/blast/databases/current/crispget/Phytophthora_cactorum_GCA_003287315.1_cds.fa
 ```
 Enter the docker and issue the following command to index the file for BLAST:
 ```
 docker exec -it crispget_tool bash
-cd /home/crispget_sequence_files/
+cd /home/crispget_sequence_files/GCA_003287315.1/cds
 
 sudo makeblastdb -in Phytophthora_cactorum_GCA_003287315.1_cds.fa -dbtype nucl -out Phytophthora_cactorum_GCA_003287315.1_cds -parse_seqids
 ```
