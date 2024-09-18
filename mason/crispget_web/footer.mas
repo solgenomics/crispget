@@ -1,0 +1,24 @@
+<center>
+	<div id="pagefooter">
+    <a href="https://btiscience.org" style="float:left;"><img id="bti_img" src="/static/images/vigs_footer_bti.png" title="Boyce Thompson Institute"/></a>
+    <a href="http://www.nsf.gov" style="float:left;" target="_blank"><img src="/static/images/nsf.png" height="50"/></a>
+    <span style="line-height:60px;">
+      <a href="https://nar.oxfordjournals.org/content/43/D1/D1036" target="_new"> Cite SGN</a> |
+      <a href="https://solgenomics.net/contact/form"> Send comments and feedback</a>
+    </span>
+	</div>
+</center>
+
+<style>
+
+#bti_img{
+	height:55px;
+	margin-left:5px;
+}
+
+#molp_img{
+	height:55px;
+	margin-right:5px;
+}
+
+</style>

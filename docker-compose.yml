@@ -1,0 +1,12 @@
+
+services:
+  crispget_tool:
+    ports:
+      - 8088:8088
+    volumes:
+      - type: bind
+        source: C:\Users\ascas\Documents\CRISPGET-master\crispget_sequence_files
+        target: /home/crispget_sequence_files
+    tty: true
+    container_name: crispget_tool
+    image: breedbase/crispget_tool_final:v0.01

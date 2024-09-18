@@ -1,0 +1,75 @@
+<!doctype html public "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<title>SGN-CRISPR tool</title>
+	
+  <link rel="stylesheet" href="/static/js/jqueryui/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="/static/css/crispget.css" type="text/css" />
+	
+  <!-- Bootstrap libraries and css -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/static/js/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+  
+	<script type="text/javascript" src="/static/js/jquery.js"></script>
+	<script type="text/javascript" src="/static/js/jquery/iframe-post-form.js"></script>
+	<script type="text/javascript" src="/static/js/Text/Markup.js"></script>
+	<script type="text/javascript" src="/static/js/crispget.js"></script>
+	<script src="https://d3js.org/d3.v4.min.js"></script>
+	
+	<!--[if lt IE 7]>
+		<style type="text/css">
+			#wrapper { height:100%; }
+		</style>
+	<![endif]-->
+	
+	 <!-- Google Analytics Code -->
+	<script src="https://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	_uacct = "UA-2460904-1";
+	//prevent js error on remote script load failure
+	if(typeof(urchinTracker) == "function"){
+	urchinTracker();
+	}
+	</script>
+	
+  <script type="text/javascript" src="/static/js/jqueryui/jquery-ui.js"></script>
+  
+  <script src="/static/js/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+	
+</head>
+
+<body>
+  <& /crispget_web/browser_alert.mas &>
+
+	<div id="wrapper">
+		<div id="header">
+			<& /crispget_web/header.mas &>
+		</div>
+	
+		<div id="content">
+			<% $m->call_next %>
+		</div>
+		<br>
+		<br>
+		<div id="footer">
+			<& /crispget_web/footer.mas &>
+		</div>
+		
+	</div>
+
+</body>
+	
+<script>
+	var x = document.getElementById("default_db");
+	<!--x.selected = true;-->
+</script>
+	
+</html>
+
+
+
+
+
+
+
