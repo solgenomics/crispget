@@ -12,7 +12,7 @@ unzip GCA_003287315.1.zip
 ```
 in emacs, replace the string >lcl| with > , if present
 (otherwise, fastacmd will not work correctly)
-
+o
 Copy the dataset to the correct location, where the CRISPGET tool can see it. If using the docker, this target directory has to be mounted into the docker at ```/home/crispget_sequence_files/GCA_003287315.1/cds```.
 ```
 sudo cp ncbi_dataset/data/GCA_003287315.1/cds_from_genomic.fna /export/prod/blast/databases/current/crispget/Phytophthora_cactorum_GCA_003287315.1_cds.fa
@@ -54,3 +54,22 @@ docker-compose up --detach
 ```
 
 By default, the CRISPGET interface will be available at ```localhost:8088```.
+
+
+### Additional files required
+
+The CRISPGET tool also makes use of the files cfd.pam.scores.cas9.txt, cfd.mm.scores.cas9.txt, and mit.weights.txt, which are included in the 'scoring_files' folder. These files also have to be mounted into the docker at ```/home/crispget_sequence_files/```.
+
+The files cfd.pam.scores.cas9.txt, cfd.mm.scores.cas9.txt, and mit.weights.txt are from the Github repo https://github.com/crisprVerse/crisprScore/tree/devel/inst
+
+Please see the following license and citation for more information about this source:
+Copyright (c) 2022, Genentech, Inc.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+Citation related to additional files:
+Hoberecht L, Perampalam P, Lun A, Fortin JP. A comprehensive Bioconductor ecosystem for the design of CRISPR guide RNAs across nucleases and technologies. Nature Communications. 2022 Nov 2;13(1):6568.
