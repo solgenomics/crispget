@@ -7,6 +7,9 @@ services:
       - type: bind
         source: $HOME/crispget_sequence_files
         target: /home/crispget_sequence_files
+      - type: bind
+        source: crispget_local.conf
+        target: /home/CRISPGET/crispget_local.conf
     tty: true
     container_name: crispget_tool
-    image: breedbase/crispget_tool_final:v0.01
+    image: breedbase/crispget:v0.03
