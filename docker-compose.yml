@@ -12,4 +12,4 @@ services:
         target: /home/CRISPGET/crispget_local.conf
     tty: true
     container_name: crispget_tool
-    image: breedbase/crispget:v0.03
+    image: breedbase/crispget:v0.04
