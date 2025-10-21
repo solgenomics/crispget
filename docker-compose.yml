@@ -2,7 +2,7 @@
 services:
   crispget_tool:
     ports:
-      - 8088:8088
+      - 8913:8080
     volumes:
       - type: bind
         source: $HOME/crispget_sequence_files
@@ -12,4 +12,4 @@ services:
         target: /home/CRISPGET/crispget_local.conf
     tty: true
     container_name: crispget_tool
-    image: breedbase/crispget:v0.04
+    image: breedbase/crispget:v0.05
